@@ -26,13 +26,21 @@ typedef struct s_map_data
     size_t      height;
 }               t_map_data;
 
+typedef struct s_player
+{
+    double      x;
+    double      y;
+    char        direction;
+}               t_player;
+
 /*--------------------------------file format-------------------------------*/
 int	    file_format(const char *name, const char *extension);
 
 /*-------------------------data reading and parsing--------------------------*/
 int     get_data(char *map_file, char ***data);
 int     get_line(int fd, char **line);
-int     get_walls(char **data);
+int     get_walls(t_walls *walls, char **data);
+int     split_data(t_walls *walls, t_map_data *map, char **data);
 int     get_map(char **data);
 int     parse_map(char **data);
 

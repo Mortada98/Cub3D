@@ -2,7 +2,7 @@ NAME = cub3D
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
-	get_data/get_walls.c \
+	split_data/walls_map.c \
 	get_map/get_map.c \
 	parse_map/parse_map.c \
 	utils/clean_up.c \

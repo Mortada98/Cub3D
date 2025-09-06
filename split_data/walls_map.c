@@ -6,7 +6,7 @@
 /*   By: mbouizak <mbouizak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 09:02:49 by mbouizak          #+#    #+#             */
-/*   Updated: 2025/09/06 15:42:51 by mbouizak         ###   ########.fr       */
+/*   Updated: 2025/09/06 16:15:50 by mbouizak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int   get_walls_helper(t_walls *walls, char *line)
     return (0);
 }
 
-int    get_walls(t_walls *walls, t_map_data *map, char **data)
+int    get_walls(t_walls *walls, char **data)
 {
     int     i;
 
@@ -54,7 +54,7 @@ int    split_data(t_walls *walls, t_map_data *map, char **data)
     size_t  len;
 
     memset(walls, 0, sizeof(t_walls));
-    i = get_walls(walls, map, data);
+    i = get_walls(walls, data);
     if (i < 0)
         return (1);
     map->map = &data[i];

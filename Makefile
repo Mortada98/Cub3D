@@ -36,7 +36,7 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	$(CC) $(OBJ_FILES) $(LDFLAGS) -o $@
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c includes/cub3d.h
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 

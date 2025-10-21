@@ -119,20 +119,22 @@ char	*trim_spaces(char *str)
 int	is_map_line(const char *line)
 {
 	int	i;
+	int	has_map_char;
 
 	i = 0;
+	has_map_char = 0;
 	if (!line)
 		return (0);
 	while (line[i])
 	{
 		if (line[i] == '0' || line[i] == '1')
-			return (1);
-		if (line[i] == 'N' || line[i] == 'S'
+			has_map_char = 1;
+		else if (line[i] == 'N' || line[i] == 'S'
 			|| line[i] == 'E' || line[i] == 'W')
-			return (1);
-		if (line[i] != ' ' && line[i] != '\t')
+			has_map_char = 1;
+		else if (line[i] != ' ' && line[i] != '\t')
 			return (0);
 		i++;
 	}
-	return (0);
+	return (has_map_char);
 }

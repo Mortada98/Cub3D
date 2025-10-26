@@ -28,9 +28,9 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (print_error("Usage: ./cub3D <map.cub>"));
+		return (print_error("Error:\n Usage: ./cub3D <map.cub>"));
 	if (!check_extension(argv[1]))
-		return (print_error("Invalid file extension"));
+		return (print_error("Error:\n Invalid file extension"));
 	init_game_struct(&game);
 	if (parse_scene(&game, argv[1]))
 	{

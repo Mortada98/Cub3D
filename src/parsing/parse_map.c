@@ -13,11 +13,15 @@ static int	row_width(const char *line)
 static void	fill_row(char *dst, const char *src, int width)
 {
 	int	i;
+	int	src_len;
 
+	src_len = 0;
+	if (src)
+		src_len = ft_strlen(src);
 	i = 0;
 	while (i < width)
 	{
-		if (src && src[i])
+		if (src && i < src_len)
 			dst[i] = src[i];
 		else
 			dst[i] = ' ';

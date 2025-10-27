@@ -2,24 +2,11 @@
 
 static int	check_neighbors(t_map *map, int x, int y)
 {
-	int	dx;
-	int	dy;
-
 	if (x == 0 || y == 0 || x == map->width - 1 || y == map->height - 1)
 		return (print_error("Map not enclosed by walls"));
-	dy = -1;
-	while (dy <= 1)
-	{
-		dx = -1;
-		while (dx <= 1)
-		{
-			if ((dx != 0 || dy != 0)
-				&& map->grid[y + dy][x + dx] == ' ')
-				return (print_error("Map has open space"));
-			dx++;
-		}
-		dy++;
-	}
+	if (map->grid[y - 1][x] == ' ' || map->grid[y + 1][x] == ' '
+		|| map->grid[y][x - 1] == ' ' || map->grid[y][x + 1] == ' ')
+		return (print_error("Map has open space"));
 	return (0);
 }
 

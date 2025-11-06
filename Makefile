@@ -2,7 +2,7 @@ NAME		= cub3D
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -Iincludes -Iminilibx-linux
-LDFLAGS		= -Lminilibx-linux -lmlx -lXext -lX11 -lm
+LDFLAGS		= -L /usr/include/minilibx-linux -lmlx -lXext -lX11 -lm
 
 SRC_FILES	= \
 	src/main.c \

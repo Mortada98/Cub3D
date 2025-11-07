@@ -5,9 +5,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
-/* MiniLibX compatibility: include if available, otherwise provide fwd decls */
-//# include "mlx_compat.h"
-# include <minilibx-linux/mlx.h>
+# include <mlx.h>
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
@@ -26,8 +24,8 @@
 # define KEY_S 115
 # define KEY_D 100
 
-# define MOVE_SPEED 0.06
-# define ROT_SPEED 0.03
+# define MOVE_SPEED 0.05
+# define ROT_SPEED 0.05
 
 # define EVENT_KEY_PRESS 2
 # define EVENT_KEY_RELEASE 3

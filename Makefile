@@ -1,8 +1,8 @@
 NAME		= cub3D
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -Iincludes -Iminilibx-linux
-LDFLAGS		= -L /usr/include/minilibx-linux -lmlx -lXext -lX11 -lm
+CFLAGS		= -Wall -Wextra -Werror -Iincludes -I/usr/include/minilibx-linux
+LDFLAGS		= -L/usr/include/minilibx-linux -lmlx -lXext -lX11 -lm
 
 SRC_FILES	= \
 	src/main.c \
@@ -28,13 +28,20 @@ SRC_FILES	= \
 	src/utils/io.c \
 	src/utils/dispose.c
 
+DEBUG_SRC	= src/debug/print_scene_debug.c
+
 OBJ_DIR		= build
 OBJ_FILES	= $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
+
+DEBUG_OBJ_FILES = $(filter-out $(OBJ_DIR)/src/main.o, $(OBJ_FILES))
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) $(OBJ_FILES) $(LDFLAGS) -o $@
+
+debug: $(DEBUG_OBJ_FILES)
+	$(CC) $(DEBUG_OBJ_FILES) $(CFLAGS) $(DEBUG_SRC) $(LDFLAGS) -o print_scene_debug
 
 $(OBJ_DIR)/%.o: %.c includes/cub3d.h
 	@mkdir -p $(dir $@)
